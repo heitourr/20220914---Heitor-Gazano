@@ -1,0 +1,124 @@
+
+<html>
+    <head>
+    <title>Page Title</title>
+    <script lang="Javascript">
+        var valor1, valor2, resultado, qualnegocio;
+        function clicouNoBotao(qual)
+        {
+            document.frm.txtSaida.value += qual;
+        }
+        function clean()
+        {
+        document.frm.txtSaida.value = "";
+        }
+        function clicouNoCoiso(coiso)
+        {
+            valor1 = document.frm.txtSaida.value;
+            qualnegocio = coiso;
+            document.frm.txtSaida.value = '';
+        }
+        function clicouNoIgual()
+        {
+            valor2 = document.frm.txtSaida.value;
+            valor1 = parseFloat(valor1)
+            valor2 = parseFloat(valor2)
+            if (qualnegocio == 1)
+            {
+            resultado = valor1 + valor2;
+            }
+            if (qualnegocio == 2)
+            {
+            resultado = valor1 * valor2;
+            }
+            if (qualnegocio == 3)
+            {
+            resultado = valor1 - valor2;
+            }
+            if (qualnegocio == 4)
+            {
+            resultado = valor1 / valor2;
+            }
+            document.frm.txtSaida.value = '';
+            document.frm.txtSaida.value += + resultado;
+        }
+        function apagar1()
+        {
+            var resultado = document.frm.txtSaida.value;
+            document.frm.txtSaida.value = resultado.substring(0, resultado.length -1);
+        }
+    </script>
+<style type="text/css">
+    input[type=text], p
+    {    
+       font-family: Arial, Helvetica, sans-serif;
+       font-size: 30px;
+       width: 220px;
+       border-radius: 10px; 
+    }  
+    h1
+    {
+        margin-top: 150px;
+    }
+
+    input[type=button]
+    {
+        border-radius: 10px;  
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+    }
+    .bigger
+    {
+      min-width: 105px;
+    }
+    </style>    
+</head>
+<body>
+    <center>
+    <form name="frm">
+    <table>
+        <tr>
+            <h1>Calculadora</h1>
+            <input type="text" name="txtSaida" id="txtSaida" readonly="">
+        </tr>
+        <tr>
+            <td colspan="2"> <input type="button" class="bigger" name="clear" value="C" onclick="clean()"></td>
+            <td><input type="button" name="backspacee" value='<' onclick="apagar1();"></td>
+            <td> <input type="button" name="btndivisao" value="%" onclick="clicouNoCoiso(4);"> </td>
+        </tr>
+    <tr>   
+    <td> <input type="button" name="btn1" value="1" onclick="clicouNoBotao('1');"> </td>
+    <td> <input type="button" name="btn2" value="2" onclick="clicouNoBotao('2');"> </td>
+    <td> <input type="button" name="btn3" value="3" onclick="clicouNoBotao('3');"> </td>
+    <td> <input type="button" name="btnvezes" value="x" onclick="clicouNoCoiso(2);"> </td>
+    </tr>
+
+    <tr>
+    <td> <input type="button" name="btn4" value="4" onclick="clicouNoBotao('4');"> </td>
+    <td> <input type="button" name="btn5" value="5" onclick="clicouNoBotao('5');"> </td>
+    <td> <input type="button" name="btn6" value="6" onclick="clicouNoBotao('6');"> </td>
+    <td> <input type="button" name="btnmenos" value="-" onclick="clicouNoCoiso(3);"> </td>
+    </tr>
+
+    <tr>
+    <td> <input type="button" name="btn7" value="7" onclick="clicouNoBotao('7');"> </td>
+    <td> <input type="button" name="btn8" value="8" onclick="clicouNoBotao('8');"> </td>
+    <td> <input type="button" name="btn9" value="9" onclick="clicouNoBotao('9');"> </td>
+    <td> <input type="button" name="btnmais" value="+" onclick="clicouNoCoiso(1);"> </td>
+    </tr>
+
+    <tr>
+        <td> <input type="button" name="btnponto" value="." onclick="clicouNoBotao('.');"> </td>
+        <td> <input type="button" name="btn0" value="0" onclick="clicouNoBotao('0');"> </td>
+        <td colspan="2"><input type="button" name="equal" value="=" class="bigger" onclick="clicouNoIgual('1');"></td>
+        
+    </tr>
+
+    <tr>
+    </tr>
+</center>
+</table>
+</form>
+
+</body></html>
